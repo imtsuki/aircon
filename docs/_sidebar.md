@@ -1,2 +1,2 @@
-* [主页](README.md)
-* [测试章节](test.md)
+- [作业大纲](README.md)
+- [测试章节](test.md)
