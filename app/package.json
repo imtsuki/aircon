@@ -1,6 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
+  "description": "aircon backend",
   "author": "aircon authors",
   "private": true,
   "dependencies": {
@@ -13,7 +14,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
