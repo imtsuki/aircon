@@ -6,8 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Aircon API Documentation')
-    .setDescription('The Aircon API description')
+    .setTitle('Aircon Backend API Documentation')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);
