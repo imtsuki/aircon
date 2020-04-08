@@ -1,0 +1,11 @@
+{
+  "name": "aircon",
+  "version": "0.1.0",
+  "repository": "git@github.com:imtsuki/aircon.git",
+  "author": "aircon authors",
+  "private": true,
+  "workspaces": [
+    "app",
+    "server"
+  ]
+}
