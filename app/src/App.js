@@ -9,7 +9,9 @@ const App = () => (
       title="分布式温控系统"
       subTitle="Hello, World!"
       extra={[
-        <Button type="primary" key="console" onClick={openNotification}>Click me!</Button>,
+        <Button type="primary" key="console" onClick={openNotification}>
+          Click me!
+        </Button>,
       ]}
     />
   </div>
