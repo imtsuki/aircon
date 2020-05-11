@@ -13,11 +13,13 @@ const tailLayout = {
 
 const Login = () => {
   const onFinish = async (data) => {
-    let resp = await request.post('/auth/login', data);
-    notification.success({
-      message: '登录成功！',
-      description: `用户令牌：${resp.data.accessToken}`,
-    });
+    try {
+      let resp = await request.post('/auth/login', data);
+      notification.success({
+        message: '登录成功！',
+        description: `用户令牌：${resp.data.accessToken}`,
+      });
+    } catch {}
   };
 
   const onFinishFailed = (errorInfo) => {
