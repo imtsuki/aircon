@@ -9,7 +9,6 @@ import {
 import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
-import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Controller()
 export class AppController {
@@ -29,13 +28,7 @@ export class AppController {
   }
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
-  async login(@Request() req: any) {
+  async login(@Request() req: Request & { user: any }) {
     return this.authService.login(req.user);
-  }
-
-  @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req: any) {
-    return req.user;
   }
 }
