@@ -40,6 +40,9 @@ request.interceptors.response.use(
       });
       return Promise.reject(error.response.data);
     } else {
+      notification.error({
+        message: `请求错误： ${error.message}`,
+      });
       return Promise.reject(error);
     }
   }
