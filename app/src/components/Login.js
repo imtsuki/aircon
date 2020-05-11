@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, notification } from 'antd';
 
-import request from './utils/request';
+import request from '../utils/request';
 
 const layout = {
   labelCol: { span: 8 },
