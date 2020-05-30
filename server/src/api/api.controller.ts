@@ -13,10 +13,11 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles.decorator';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
-import { CheckInDto, ChangeWindDto } from 'src/dto';
+import { CheckInDto, ChangeWindDto, PowerOnDto } from 'src/dto';
 import { CheckInService } from 'src/check-in/check-in.service';
 import { SchedulerService } from 'src/scheduler/scheduler.service';
 import { Action } from 'src/dto/change-wind.dto';
+import { StatisticsService } from 'src/statistics/statistics.service';
 
 @ApiBearerAuth()
 @Controller('api')
@@ -25,6 +26,7 @@ export class ApiController {
   constructor(
     private schedulerService: SchedulerService,
     private checkInService: CheckInService,
+    private statisticsService: StatisticsService,
   ) {}
 
   @Get('profile')
@@ -112,10 +114,24 @@ export class ApiController {
     return;
   }
 
+  @ApiOperation({ description: '管理员配置并打开主控机' })
+  @Post('poweron')
+  @Roles('admin')
+  powerOn(@Body() powerOn: PowerOnDto) {
+    return;
+  }
+
   @ApiOperation({ description: '管理员查看房间状态' })
   @Get('status')
   @Roles('admin')
   getRoomStatus() {
+    return;
+  }
+
+  @ApiOperation({ description: '管理员关闭主控机' })
+  @Delete('poweroff')
+  @Roles('admin')
+  powerOff() {
     return;
   }
 }

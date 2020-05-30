@@ -4,6 +4,7 @@ import { WaitQueueService } from './wait-queue.service';
 import { ServingQueueService } from './serving-queue.service';
 import { WindSpeed } from 'src/types';
 import { ConfigService } from '@nestjs/config';
+import { StatisticsService } from 'src/statistics/statistics.service';
 
 @Injectable()
 export class SchedulerService {
@@ -11,6 +12,7 @@ export class SchedulerService {
     private configService: ConfigService,
     private servingQueueService: ServingQueueService,
     private waitQueueService: WaitQueueService,
+    private statisticsService: StatisticsService,
   ) {
     this.initialWaitTime =
       this.configService.get<number>('initialWaitTime') ?? 30;

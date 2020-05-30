@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { ApiController } from './api/api.controller';
 import { SchedulerModule } from './scheduler/scheduler.module';
 import { CheckInModule } from './check-in/check-in.module';
+import { StatisticsModule } from './statistics/statistics.module';
 import configuration from './configuration';
 
 @Module({
@@ -18,6 +19,7 @@ import configuration from './configuration';
     UsersModule,
     SchedulerModule,
     CheckInModule,
+    StatisticsModule,
   ],
   controllers: [AppController, ApiController],
   providers: [AppService],

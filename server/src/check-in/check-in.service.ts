@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CheckInService {
+  checkInInfo: Map<string, number>;
+
   checkIn(username: string, roomId: number) {
     return;
   }
