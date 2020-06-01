@@ -1,14 +1,9 @@
-import {
-  Controller,
-  Post,
-  Get,
-  Request,
-  Query,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Post, Get, Request, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
+import { ApiBody, ApiOperation } from '@nestjs/swagger';
+import { AuthLoginDto } from './dto';
 
 @Controller()
 export class AppController {
@@ -22,10 +17,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('echo')
-  getEcho(@Query('message') message: string): string {
-    return message;
-  }
+  @ApiOperation({ description: '用户登录系统' })
+  @ApiBody({ type: AuthLoginDto })
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req: Request & { user: any }) {

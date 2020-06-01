@@ -1,0 +1,137 @@
+@startuml
+class JwtAuthGuard
+class RolesGuard implements CanActivate {
+    -reflector: Reflector
+    +canActivate(context: ExecutionContext): boolean
+}
+enum WindSpeed {
+    LOW
+    MEDIUM
+    HIGH
+}
+enum WindMode {
+    COOLING
+    HEATING
+}
+enum Action {
+    ON
+    OFF
+}
+class ChangeWindDto {
+    +action: Action
+    +mode: WindMode
+    +speed: WindSpeed
+}
+class AuthLoginDto {
+    +username: string
+    +password: string
+}
+class CheckInDto {
+    +username: string
+    +roomId: number
+}
+class PowerOnDto {
+    +mode: WindMode
+    +minTemperature: number
+    +maxTemperature: number
+    +defaultTemperature: number
+    +feeRate: number
+    +maxCapacity: number
+}
+class CheckInService {
+    +checkInInfo: Map<string, number>
+    +checkIn(username: string, roomId: number): void
+    +checkOut(username: string): void
+    +getRoomIdByUsername(username: string): number
+    +getUsernameByRoomId(roomId: number): string
+}
+class WaitQueueService {
+    +queue: WaitRoom[]
+    +isEmpty(): boolean
+    +has(roomId: number): boolean
+    +popHighestPriorityRoom(): WaitRoom | undefined
+    +pushRoom(room: WaitRoom): void
+    +removeIfExists(roomId: number): void
+    +decreaseWaitTimeBy(time: number): void
+}
+class WaitRoom {
+    +roomId: number
+    +windSpeed: WindSpeed
+    +waitTime: number
+}
+class ServingQueueService {
+    -waitQueueService: WaitQueueService
+    +MAX_CAPACITY: number
+    +queue: ServingRoom[]
+    +isFull(): boolean
+    +has(roomId: number): boolean
+    +pushRoom(room: ServingRoom): void
+    +removeIfExists(roomId: number): void
+    +popLowestPriorityRoomWithWindSpeedBelow(windSpeed: WindSpeed): ServingRoom | undefined
+    +increaseServedTimeBy(time: number): void
+}
+class ServingRoom {
+    +roomId: number
+    +windSpeed: WindSpeed
+    +servedTime: number
+}
+class StatisticsService {
+    +statisticsRepository: any
+    +logRoomOperation(roomId: number, operation: string): void
+    +getStatisticsByRange(period: "day" | "week" | "month"): void
+    +getDetail(roomId: number): void
+    +getInvoice(roomId: number): void
+}
+class SchedulerService {
+    -configService: ConfigService<Record<string, any>>
+    -servingQueueService: ServingQueueService
+    -waitQueueService: WaitQueueService
+    -statisticsService: StatisticsService
+    -logger: Logger
+    -initialWaitTime: number
+    +schedule(): void
+    +changeWind(roomId: number, windSpeed: WindSpeed): void
+    +turnOff(roomId: number): void
+    +getStatus(roomId: number): "serving" | "waiting" | "off"
+    +removeIfExists(roomId: number): void
+}
+class ApiController {
+    -schedulerService: SchedulerService
+    -checkInService: CheckInService
+    -statisticsService: StatisticsService
+    +getProfile(req: any): any
+    +register(): void
+    +changeWind(roomId: string, changeWind: ChangeWindDto): void
+    +getStatus(roomId: string): "serving" | "waiting" | "off"
+    +getBilling(): void
+    +checkIn(checkIn: CheckInDto): void
+    +checkOut(username: string): void
+    +getCheckInStatus(username: string): number
+    +getInvoice(username: string): void
+    +getDetail(username: string): void
+    +getReport(): void
+    +powerOn(powerOn: PowerOnDto): void
+    +getRoomStatus(): void
+    +powerOff(): void
+}
+ChangeWindDto *-- Action
+ChangeWindDto *-- WindMode
+ChangeWindDto *-- WindSpeed
+PowerOnDto *-- WindMode
+WaitQueueService *-- WaitRoom
+WaitRoom *-- WindSpeed
+ServingQueueService *-- WaitQueueService
+ServingQueueService *-- ServingRoom
+ServingQueueService *-- WindSpeed
+ServingRoom *-- WindSpeed
+SchedulerService *-- ServingQueueService
+SchedulerService *-- WaitQueueService
+SchedulerService *-- StatisticsService
+SchedulerService *-- WindSpeed
+ApiController *-- SchedulerService
+ApiController *-- CheckInService
+ApiController *-- StatisticsService
+ApiController *-- ChangeWindDto
+ApiController *-- CheckInDto
+ApiController *-- PowerOnDto
+@enduml
