@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="358.5px" preserveAspectRatio="none" style="width:838px;height:358px;background:#EEEBDC;" version="1.1" viewBox="0 0 838 358" width="838.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f2y5dso985eus" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f12971298a7e728e744847829e071dc2]
+class ApiController--><rect fill="#87CEFA" filter="url(#f2y5dso985eus)" height="110.4141" id="ApiController" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="813" x="9" y="12"/><ellipse cx="350.625" cy="36" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M354.1406,29.5078 C352.7344,28.8516 351.8438,28.6406 350.5313,28.6406 C346.5938,28.6406 343.5938,31.7578 343.5938,35.8359 L343.5938,37.5234 C343.5938,41.3906 346.7578,44.2266 351.0938,44.2266 C352.9219,44.2266 354.6563,43.7813 355.7813,42.9609 C356.6484,42.3516 357.1406,41.6719 357.1406,41.0859 C357.1406,40.4063 356.5547,39.8203 355.8516,39.8203 C355.5234,39.8203 355.2188,39.9375 354.9375,40.2188 C354.2578,40.9453 354.2578,40.9453 353.9766,41.0859 C353.3438,41.4844 352.3125,41.6719 351.1641,41.6719 C348.0938,41.6719 346.1484,40.0313 346.1484,37.4766 L346.1484,35.8359 C346.1484,33.1641 348.0234,31.1953 350.625,31.1953 C351.4922,31.1953 352.4063,31.4297 353.1094,31.8047 C353.8359,32.2266 354.0938,32.5547 354.2344,33.1641 C354.3281,33.7734 354.375,33.9609 354.5859,34.1484 C354.7969,34.3594 355.1484,34.5234 355.4766,34.5234 C355.875,34.5234 356.2734,34.3125 356.5313,33.9844 C356.6953,33.75 356.7422,33.4688 356.7422,32.8359 L356.7422,30.7031 C356.7422,30.0469 356.7188,29.8594 356.5781,29.625 C356.3438,29.2266 355.9219,29.0156 355.4766,29.0156 C355.0313,29.0156 354.7266,29.1563 354.3984,29.625 L354.1406,29.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="117" x="381.375" y="42.2314">ApiController</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="10.5" x2="820.5" y1="60" y2="60"/><ellipse cx="25.5" cy="76.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="300" x="39" y="81.3157">userInfo:Map&lt;string,AuthLoginDto&gt;</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="10.5" x2="820.5" y1="91.207" y2="91.207"/><ellipse cx="25.5" cy="107.707" fill="#84BE84" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="774" x="39" y="112.5227">"ERROR"|"manager"|"frontdesk"|"hotelManager" getProfile(username:string,password:string)</text><!--MD5=[fc83322d3d5279b6c2dd65b5c19b6e3f]
+class AuthLoginDto--><rect fill="#87CEFA" filter="url(#f2y5dso985eus)" height="129.6211" id="AuthLoginDto" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="409.5" x="210.75" y="213"/><ellipse cx="349.875" cy="237" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M353.3906,230.5078 C351.9844,229.8516 351.0938,229.6406 349.7813,229.6406 C345.8438,229.6406 342.8438,232.7578 342.8438,236.8359 L342.8438,238.5234 C342.8438,242.3906 346.0078,245.2266 350.3438,245.2266 C352.1719,245.2266 353.9063,244.7813 355.0313,243.9609 C355.8984,243.3516 356.3906,242.6719 356.3906,242.0859 C356.3906,241.4063 355.8047,240.8203 355.1016,240.8203 C354.7734,240.8203 354.4688,240.9375 354.1875,241.2188 C353.5078,241.9453 353.5078,241.9453 353.2266,242.0859 C352.5938,242.4844 351.5625,242.6719 350.4141,242.6719 C347.3438,242.6719 345.3984,241.0313 345.3984,238.4766 L345.3984,236.8359 C345.3984,234.1641 347.2734,232.1953 349.875,232.1953 C350.7422,232.1953 351.6563,232.4297 352.3594,232.8047 C353.0859,233.2266 353.3438,233.5547 353.4844,234.1641 C353.5781,234.7734 353.625,234.9609 353.8359,235.1484 C354.0469,235.3594 354.3984,235.5234 354.7266,235.5234 C355.125,235.5234 355.5234,235.3125 355.7813,234.9844 C355.9453,234.75 355.9922,234.4688 355.9922,233.8359 L355.9922,231.7031 C355.9922,231.0469 355.9688,230.8594 355.8281,230.625 C355.5938,230.2266 355.1719,230.0156 354.7266,230.0156 C354.2813,230.0156 353.9766,230.1563 353.6484,230.625 L353.3906,230.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="118.5" x="380.625" y="243.2314">AuthLoginDto</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="212.25" x2="618.75" y1="261" y2="261"/><ellipse cx="227.25" cy="277.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="138" x="240.75" y="282.3157">username:string</text><ellipse cx="227.25" cy="296.707" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="130.5" x="240.75" y="301.5227">password:string</text><ellipse cx="227.25" cy="315.9141" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="370.5" x="240.75" y="320.7297">type:"manager"|"frontdesk"|"hotelManager"</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="212.25" x2="618.75" y1="330.6211" y2="330.6211"/><!--MD5=[ae056580902e0b230eba1b885deca8d6]
+link ApiController to AuthLoginDto--><path d="M415.5,123.387 C415.5,148.137 415.5,177.7665 415.5,204.3054 " fill="none" id="ApiController-&gt;AuthLoginDto" style="stroke: #808000; stroke-width: 1.5;"/><polygon fill="#808000" points="415.5,212.4335,421.5,198.9335,415.5,204.9335,409.5,198.9335,415.5,212.4335" style="stroke: #808000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="12" x="402.5062" y="152.6719">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="10.5" x="404.1961" y="196.315">*</text><!--MD5=[ede33e66f1cc73dc0d8faa25a87e73da]
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+' fontsize 30
+' attributeFontSize 20
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+'skinparam monochrome true
+'skinparam classFontColor red
+'skinparam classFontSize 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++userInfo:Map<string,AuthLoginDto>
+- -
++ "ERROR"|"manager"|"frontdesk"|"hotelManager" getProfile(username:string,password:string)
+}
+
+class AuthLoginDto{
++username:string
++password:string
++type:"manager"|"frontdesk"|"hotelManager"
+- -
+}
+
+ApiController "1"- ->"*" AuthLoginDto
+@enduml
+
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++userInfo:Map<string,AuthLoginDto>
+- -
++ "ERROR"|"manager"|"frontdesk"|"hotelManager" getProfile(username:string,password:string)
+}
+
+class AuthLoginDto{
++username:string
++password:string
++type:"manager"|"frontdesk"|"hotelManager"
+- -
+}
+
+ApiController "1"- ->"*" AuthLoginDto
+@enduml
+
+PlantUML version 1.2020.11(Sat May 30 10:13:43 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
