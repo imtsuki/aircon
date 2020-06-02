@@ -1,7 +1,7 @@
 # 住户用例静态结构设计
 
 ##住户用例静态类图
-![User-static](住户用例-静态类图.png)
+![User-static](user-static.png)
 
 
 
