@@ -1,13 +1,13 @@
-import { Injectable } from '@nestjs/common';
-
-export type User = any;
+import { Injectable, BadRequestException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { User } from '../schemas/user.schema';
+import { Model } from 'mongoose';
+import { CreateUserDto } from 'src/dto';
 
 @Injectable()
 export class UsersService {
-  private readonly users: User[];
-
-  constructor() {
-    this.users = [
+  constructor(@InjectModel(User.name) private userModel: Model<User>) {
+    const a = [
       {
         userId: 1,
         username: 'alice',
@@ -35,11 +35,22 @@ export class UsersService {
     ];
   }
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find(user => user.username === username);
+  async findOne(username: string): Promise<User | null> {
+    return this.userModel.findOne({ username: username }).exec();
   }
 
-  async addUser(username: string, password: string) {
-    return;
+  async findAll(): Promise<User[]> {
+    return this.userModel.find().exec();
+  }
+
+  async create(createUserDto: CreateUserDto): Promise<User> {
+    const user = await this.findOne(createUserDto.username);
+
+    if (user) {
+      throw new BadRequestException(`user ${user.username} already exists`);
+    }
+
+    const createdUser = new this.userModel(createUserDto);
+    return createdUser.save();
   }
 }

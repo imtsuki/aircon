@@ -38,6 +38,15 @@ class PowerOnDto {
     +feeRate: number
     +maxCapacity: number
 }
+class ReportDto {
+    +type: "day" | "week" | "month"
+    +usedMostTemp: number[]
+    +usedMostWind: number[]
+    +time: number[]
+    +timeOfServing: number[]
+    +numOfRDR: number[]
+    +totalFee: number[]
+}
 class CheckInService {
     +checkInInfo: Map<string, number>
     +checkIn(username: string, roomId: number): void
@@ -78,7 +87,7 @@ class ServingRoom {
 class StatisticsService {
     +statisticsRepository: any
     +logRoomOperation(roomId: number, operation: string): void
-    +getStatisticsByRange(period: "day" | "week" | "month"): void
+    +getStatisticsByRange(period: "day" | "week" | "month"): ReportDto
     +getDetail(roomId: number): void
     +getInvoice(roomId: number): void
 }
@@ -124,6 +133,7 @@ ServingQueueService *-- WaitQueueService
 ServingQueueService *-- ServingRoom
 ServingQueueService *-- WindSpeed
 ServingRoom *-- WindSpeed
+StatisticsService *-- ReportDto
 SchedulerService *-- ServingQueueService
 SchedulerService *-- WaitQueueService
 SchedulerService *-- StatisticsService

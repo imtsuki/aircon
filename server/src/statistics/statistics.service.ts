@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ReportDto } from 'src/dto';
 
 @Injectable()
 export class StatisticsService {
@@ -8,8 +9,8 @@ export class StatisticsService {
     return;
   }
 
-  getStatisticsByRange(period: 'day' | 'week' | 'month') {
-    return;
+  getStatisticsByRange(period: 'day' | 'week' | 'month'): ReportDto {
+    return new ReportDto();
   }
 
   getDetail(roomId: number) {

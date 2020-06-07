@@ -8,6 +8,7 @@ import {
   Delete,
   Param,
   Put,
+  NotFoundException,
 } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
@@ -33,13 +34,6 @@ export class ApiController {
   @Roles('client', 'desk', 'manager', 'admin')
   getProfile(@Request() req: any) {
     return req.user;
-  }
-
-  @ApiOperation({ description: '系统注册新用户' })
-  @Post('register')
-  @Roles('desk', 'manager', 'admin')
-  register() {
-    return;
   }
 
   @ApiOperation({ description: '开关机，更改房间风速' })
@@ -73,28 +67,33 @@ export class ApiController {
   @ApiOperation({ description: '前台操作客户入住' })
   @Post('checkin')
   @Roles('desk')
-  checkIn(@Body() checkIn: CheckInDto) {
-    return this.checkInService.checkIn(checkIn.username, checkIn.roomId);
+  async checkIn(@Body() checkIn: CheckInDto) {
+    return this.checkInService.checkIn(checkIn);
   }
 
   @ApiOperation({ description: '前台操作客户退房' })
   @Delete('checkin/:username')
   @Roles('desk')
-  checkOut(@Param() username: string) {
+  async checkOut(@Param('username') username: string) {
     return this.checkInService.checkOut(username);
   }
 
   @ApiOperation({ description: '查看客户住在哪个房间' })
   @Get('checkin/:username')
   @Roles('desk', 'client')
-  getCheckInStatus(@Param() username: string) {
-    return this.checkInService.getRoomIdByUsername(username);
+  async getCheckInStatus(@Param('username') username: string) {
+    const checkIn = await this.checkInService.getCheckInByUsername(username);
+    if (checkIn) {
+      return checkIn;
+    } else {
+      throw new NotFoundException(`user ${username} not checked in`);
+    }
   }
 
   @ApiOperation({ description: '前台获得客户账单' })
   @Get('invoice/:username')
   @Roles('desk')
-  getInvoice(@Param() username: string) {
+  getInvoice(@Param('username') username: string) {
     console.log(username);
     return;
   }
@@ -102,7 +101,7 @@ export class ApiController {
   @ApiOperation({ description: '前台获得客户详单' })
   @Get('detail/:username')
   @Roles('desk')
-  getDetail(@Param() username: string) {
+  getDetail(@Param('username') username: string) {
     console.log(username);
     return;
   }
@@ -118,7 +117,7 @@ export class ApiController {
   @Post('poweron')
   @Roles('admin')
   powerOn(@Body() powerOn: PowerOnDto) {
-    return;
+    return powerOn;
   }
 
   @ApiOperation({ description: '管理员查看房间状态' })
