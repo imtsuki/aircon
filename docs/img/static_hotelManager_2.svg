@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="675px" preserveAspectRatio="none" style="width:831px;height:675px;background:#EEEBDC;" version="1.1" viewBox="0 0 831 675" width="831px" zoomAndPan="magnify"><defs><filter height="300%" id="fl9410skxo5zx" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f12971298a7e728e744847829e071dc2]
+class ApiController--><rect fill="#87CEFA" filter="url(#fl9410skxo5zx)" height="110.4141" id="ApiController" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="708" x="57.75" y="12"/><ellipse cx="346.875" cy="36" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M350.3906,29.5078 C348.9844,28.8516 348.0938,28.6406 346.7813,28.6406 C342.8438,28.6406 339.8438,31.7578 339.8438,35.8359 L339.8438,37.5234 C339.8438,41.3906 343.0078,44.2266 347.3438,44.2266 C349.1719,44.2266 350.9063,43.7813 352.0313,42.9609 C352.8984,42.3516 353.3906,41.6719 353.3906,41.0859 C353.3906,40.4063 352.8047,39.8203 352.1016,39.8203 C351.7734,39.8203 351.4688,39.9375 351.1875,40.2188 C350.5078,40.9453 350.5078,40.9453 350.2266,41.0859 C349.5938,41.4844 348.5625,41.6719 347.4141,41.6719 C344.3438,41.6719 342.3984,40.0313 342.3984,37.4766 L342.3984,35.8359 C342.3984,33.1641 344.2734,31.1953 346.875,31.1953 C347.7422,31.1953 348.6563,31.4297 349.3594,31.8047 C350.0859,32.2266 350.3438,32.5547 350.4844,33.1641 C350.5781,33.7734 350.625,33.9609 350.8359,34.1484 C351.0469,34.3594 351.3984,34.5234 351.7266,34.5234 C352.125,34.5234 352.5234,34.3125 352.7813,33.9844 C352.9453,33.75 352.9922,33.4688 352.9922,32.8359 L352.9922,30.7031 C352.9922,30.0469 352.9688,29.8594 352.8281,29.625 C352.5938,29.2266 352.1719,29.0156 351.7266,29.0156 C351.2813,29.0156 350.9766,29.1563 350.6484,29.625 L350.3906,29.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="117" x="377.625" y="42.2314">ApiController</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="59.25" x2="764.25" y1="60" y2="60"/><ellipse cx="74.25" cy="76.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="286.5" x="87.75" y="81.3157">statisticsService:StatisticsService</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="59.25" x2="764.25" y1="91.207" y2="91.207"/><ellipse cx="74.25" cy="107.707" fill="#84BE84" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="669" x="87.75" y="112.5227">ReportDto:getReport(type:"day"|"week"|"month",startTime:date,endTime:date)</text><!--MD5=[0eae659061b2a3888f16a2c3569b6e05]
+class StatisticsService--><rect fill="#87CEFA" filter="url(#fl9410skxo5zx)" height="110.4141" id="StatisticsService" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="805.5" x="9" y="213"/><ellipse cx="330.375" cy="237" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M333.8906,230.5078 C332.4844,229.8516 331.5938,229.6406 330.2813,229.6406 C326.3438,229.6406 323.3438,232.7578 323.3438,236.8359 L323.3438,238.5234 C323.3438,242.3906 326.5078,245.2266 330.8438,245.2266 C332.6719,245.2266 334.4063,244.7813 335.5313,243.9609 C336.3984,243.3516 336.8906,242.6719 336.8906,242.0859 C336.8906,241.4063 336.3047,240.8203 335.6016,240.8203 C335.2734,240.8203 334.9688,240.9375 334.6875,241.2188 C334.0078,241.9453 334.0078,241.9453 333.7266,242.0859 C333.0938,242.4844 332.0625,242.6719 330.9141,242.6719 C327.8438,242.6719 325.8984,241.0313 325.8984,238.4766 L325.8984,236.8359 C325.8984,234.1641 327.7734,232.1953 330.375,232.1953 C331.2422,232.1953 332.1563,232.4297 332.8594,232.8047 C333.5859,233.2266 333.8438,233.5547 333.9844,234.1641 C334.0781,234.7734 334.125,234.9609 334.3359,235.1484 C334.5469,235.3594 334.8984,235.5234 335.2266,235.5234 C335.625,235.5234 336.0234,235.3125 336.2813,234.9844 C336.4453,234.75 336.4922,234.4688 336.4922,233.8359 L336.4922,231.7031 C336.4922,231.0469 336.4688,230.8594 336.3281,230.625 C336.0938,230.2266 335.6719,230.0156 335.2266,230.0156 C334.7813,230.0156 334.4766,230.1563 334.1484,230.625 L333.8906,230.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="150" x="361.125" y="243.2314">StatisticsService</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="10.5" x2="813" y1="261" y2="261"/><ellipse cx="25.5" cy="277.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="304.5" x="39" y="282.3157">reportInfo:Map&lt;number,ReportDto&gt;</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="10.5" x2="813" y1="292.207" y2="292.207"/><ellipse cx="25.5" cy="308.707" fill="#84BE84" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="766.5" x="39" y="313.5227">ReportDto:getStatisticsByRange(type:"day"|"week"|"month",startTime:date,endTime:date)</text><!--MD5=[3d1ea43077f1a7046989c328d347f516]
+class ReportDto--><rect fill="#87CEFA" filter="url(#fl9410skxo5zx)" height="244.8633" id="ReportDto" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="279" x="272.25" y="414"/><ellipse cx="359.625" cy="438" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M363.1406,431.5078 C361.7344,430.8516 360.8438,430.6406 359.5313,430.6406 C355.5938,430.6406 352.5938,433.7578 352.5938,437.8359 L352.5938,439.5234 C352.5938,443.3906 355.7578,446.2266 360.0938,446.2266 C361.9219,446.2266 363.6563,445.7813 364.7813,444.9609 C365.6484,444.3516 366.1406,443.6719 366.1406,443.0859 C366.1406,442.4063 365.5547,441.8203 364.8516,441.8203 C364.5234,441.8203 364.2188,441.9375 363.9375,442.2188 C363.2578,442.9453 363.2578,442.9453 362.9766,443.0859 C362.3438,443.4844 361.3125,443.6719 360.1641,443.6719 C357.0938,443.6719 355.1484,442.0313 355.1484,439.4766 L355.1484,437.8359 C355.1484,435.1641 357.0234,433.1953 359.625,433.1953 C360.4922,433.1953 361.4063,433.4297 362.1094,433.8047 C362.8359,434.2266 363.0938,434.5547 363.2344,435.1641 C363.3281,435.7734 363.375,435.9609 363.5859,436.1484 C363.7969,436.3594 364.1484,436.5234 364.4766,436.5234 C364.875,436.5234 365.2734,436.3125 365.5313,435.9844 C365.6953,435.75 365.7422,435.4688 365.7422,434.8359 L365.7422,432.7031 C365.7422,432.0469 365.7188,431.8594 365.5781,431.625 C365.3438,431.2266 364.9219,431.0156 364.4766,431.0156 C364.0313,431.0156 363.7266,431.1563 363.3984,431.625 L363.1406,431.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="91.5" x="390.375" y="444.2314">ReportDto</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="273.75" x2="549.75" y1="462" y2="462"/><ellipse cx="288.75" cy="478.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="144" x="302.25" y="483.3157">ReportID:number</text><ellipse cx="288.75" cy="497.707" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="234" x="302.25" y="502.5227">Type:"day"|"week"|"month"</text><ellipse cx="288.75" cy="516.9141" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="187.5" x="302.25" y="521.7297">TimesOfUse:number[]</text><ellipse cx="288.75" cy="536.1211" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="214.5" x="302.25" y="540.9368">UsedMostTemp:number[]</text><ellipse cx="288.75" cy="555.3281" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="240" x="302.25" y="560.1438">UsedMostWind:WindSpeed[]</text><ellipse cx="288.75" cy="574.5352" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="144" x="302.25" y="579.3508">TimesOf:umber[]</text><ellipse cx="288.75" cy="593.7422" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="228" x="302.25" y="598.5579">TimesOfDispatch:number[]</text><ellipse cx="288.75" cy="612.9492" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="175.5" x="302.25" y="617.7649">NumOfRDR:number[]</text><ellipse cx="288.75" cy="632.1563" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="157.5" x="302.25" y="636.9719">TotalFee:number[]</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="273.75" x2="549.75" y1="646.8633" y2="646.8633"/><!--MD5=[e3e8dc1b129586ab15b69a990a85286b]
+link ApiController to StatisticsService--><path d="M411.75,123.105 C411.75,148.4235 411.75,178.713 411.75,204.957 " fill="none" id="ApiController-&gt;StatisticsService" style="stroke: #808000; stroke-width: 1.5;"/><polygon fill="#808000" points="411.75,212.961,417.75,199.461,411.75,205.461,405.75,199.461,411.75,212.961" style="stroke: #808000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="12" x="398.7562" y="152.3432">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="36" x="372.4313" y="196.3195">0..1</text><!--MD5=[afdbf555abf3ae8de1129670f3d91c98]
+link StatisticsService to ReportDto--><path d="M411.75,324.2145 C411.75,348 411.75,377.028 411.75,405.8385 " fill="none" id="StatisticsService-&gt;ReportDto" style="stroke: #808000; stroke-width: 1.5;"/><polygon fill="#808000" points="411.75,413.9535,417.75,400.4535,411.75,406.4535,405.75,400.4535,411.75,413.9535" style="stroke: #808000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="12" x="398.7562" y="353.4709">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="10.5" x="400.766" y="397.235">*</text><!--MD5=[5372265cb9697023338915e2bc8b6efa]
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+' fontsize 30
+' attributeFontSize 20
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+'skinparam monochrome true
+'skinparam classFontColor red
+'skinparam classFontSize 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++statisticsService:StatisticsService
+- -
++ReportDto:getReport(type:"day"|"week"|"month",startTime:date,endTime:date)
+}
+
+class StatisticsService{
++reportInfo:Map<number,ReportDto>
+- -
++ReportDto:getStatisticsByRange(type:"day"|"week"|"month",startTime:date,endTime:date)
+}
+
+class ReportDto{
++ReportID:number
++Type:"day"|"week"|"month"
++TimesOfUse:number[]
++UsedMostTemp:number[]
++UsedMostWind:WindSpeed[]
++TimesOf:umber[]
++TimesOfDispatch:number[]
++NumOfRDR:number[]
++TotalFee:number[]
+}
+
+ApiController "1"- ->"0..1" StatisticsService
+StatisticsService "1"- ->"*" ReportDto
+@enduml
+
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++statisticsService:StatisticsService
+- -
++ReportDto:getReport(type:"day"|"week"|"month",startTime:date,endTime:date)
+}
+
+class StatisticsService{
++reportInfo:Map<number,ReportDto>
+- -
++ReportDto:getStatisticsByRange(type:"day"|"week"|"month",startTime:date,endTime:date)
+}
+
+class ReportDto{
++ReportID:number
++Type:"day"|"week"|"month"
++TimesOfUse:number[]
++UsedMostTemp:number[]
++UsedMostWind:WindSpeed[]
++TimesOf:umber[]
++TimesOfDispatch:number[]
++NumOfRDR:number[]
++TotalFee:number[]
+}
+
+ApiController "1"- ->"0..1" StatisticsService
+StatisticsService "1"- ->"*" ReportDto
+@enduml
+
+PlantUML version 1.2020.11(Sat May 30 10:13:43 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="675px" preserveAspectRatio="none" style="width:369px;height:675px;background:#EEEBDC;" version="1.1" viewBox="0 0 369 675" width="369px" zoomAndPan="magnify"><defs><filter height="300%" id="f1djj4g6hoiq8k" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="3.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="6.0" dy="6.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[f12971298a7e728e744847829e071dc2]
+class ApiController--><rect fill="#87CEFA" filter="url(#f1djj4g6hoiq8k)" height="110.4141" id="ApiController" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="328.5" x="16.5" y="12"/><ellipse cx="115.875" cy="36" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M119.3906,29.5078 C117.9844,28.8516 117.0938,28.6406 115.7813,28.6406 C111.8438,28.6406 108.8438,31.7578 108.8438,35.8359 L108.8438,37.5234 C108.8438,41.3906 112.0078,44.2266 116.3438,44.2266 C118.1719,44.2266 119.9063,43.7813 121.0313,42.9609 C121.8984,42.3516 122.3906,41.6719 122.3906,41.0859 C122.3906,40.4063 121.8047,39.8203 121.1016,39.8203 C120.7734,39.8203 120.4688,39.9375 120.1875,40.2188 C119.5078,40.9453 119.5078,40.9453 119.2266,41.0859 C118.5938,41.4844 117.5625,41.6719 116.4141,41.6719 C113.3438,41.6719 111.3984,40.0313 111.3984,37.4766 L111.3984,35.8359 C111.3984,33.1641 113.2734,31.1953 115.875,31.1953 C116.7422,31.1953 117.6563,31.4297 118.3594,31.8047 C119.0859,32.2266 119.3438,32.5547 119.4844,33.1641 C119.5781,33.7734 119.625,33.9609 119.8359,34.1484 C120.0469,34.3594 120.3984,34.5234 120.7266,34.5234 C121.125,34.5234 121.5234,34.3125 121.7813,33.9844 C121.9453,33.75 121.9922,33.4688 121.9922,32.8359 L121.9922,30.7031 C121.9922,30.0469 121.9688,29.8594 121.8281,29.625 C121.5938,29.2266 121.1719,29.0156 120.7266,29.0156 C120.2813,29.0156 119.9766,29.1563 119.6484,29.625 L119.3906,29.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="117" x="146.625" y="42.2314">ApiController</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="18" x2="343.5" y1="60" y2="60"/><ellipse cx="33" cy="76.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="286.5" x="46.5" y="81.3157">statisticsService:StatisticsService</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="18" x2="343.5" y1="91.207" y2="91.207"/><ellipse cx="33" cy="107.707" fill="#84BE84" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="289.5" x="46.5" y="112.5227">void:printReport(ReportID:number)</text><!--MD5=[0eae659061b2a3888f16a2c3569b6e05]
+class StatisticsService--><rect fill="#87CEFA" filter="url(#f1djj4g6hoiq8k)" height="110.4141" id="StatisticsService" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="343.5" x="9" y="213"/><ellipse cx="99.375" cy="237" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M102.8906,230.5078 C101.4844,229.8516 100.5938,229.6406 99.2813,229.6406 C95.3438,229.6406 92.3438,232.7578 92.3438,236.8359 L92.3438,238.5234 C92.3438,242.3906 95.5078,245.2266 99.8438,245.2266 C101.6719,245.2266 103.4063,244.7813 104.5313,243.9609 C105.3984,243.3516 105.8906,242.6719 105.8906,242.0859 C105.8906,241.4063 105.3047,240.8203 104.6016,240.8203 C104.2734,240.8203 103.9688,240.9375 103.6875,241.2188 C103.0078,241.9453 103.0078,241.9453 102.7266,242.0859 C102.0938,242.4844 101.0625,242.6719 99.9141,242.6719 C96.8438,242.6719 94.8984,241.0313 94.8984,238.4766 L94.8984,236.8359 C94.8984,234.1641 96.7734,232.1953 99.375,232.1953 C100.2422,232.1953 101.1563,232.4297 101.8594,232.8047 C102.5859,233.2266 102.8438,233.5547 102.9844,234.1641 C103.0781,234.7734 103.125,234.9609 103.3359,235.1484 C103.5469,235.3594 103.8984,235.5234 104.2266,235.5234 C104.625,235.5234 105.0234,235.3125 105.2813,234.9844 C105.4453,234.75 105.4922,234.4688 105.4922,233.8359 L105.4922,231.7031 C105.4922,231.0469 105.4688,230.8594 105.3281,230.625 C105.0938,230.2266 104.6719,230.0156 104.2266,230.0156 C103.7813,230.0156 103.4766,230.1563 103.1484,230.625 L102.8906,230.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="150" x="130.125" y="243.2314">StatisticsService</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="10.5" x2="351" y1="261" y2="261"/><ellipse cx="25.5" cy="277.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="304.5" x="39" y="282.3157">reportInfo:Map&lt;number,ReportDto&gt;</text><line style="stroke: #2F4F4F; stroke-width: 1.5;" x1="10.5" x2="351" y1="292.207" y2="292.207"/><ellipse cx="25.5" cy="308.707" fill="#84BE84" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="294" x="39" y="313.5227">void:saveReport(ReportID:number)</text><!--MD5=[3d1ea43077f1a7046989c328d347f516]
+class ReportDto--><rect fill="#87CEFA" filter="url(#f1djj4g6hoiq8k)" height="244.8633" id="ReportDto" rx="7.5" ry="7.5" style="stroke: #2F4F4F; stroke-width: 2.25;" width="279" x="41.25" y="414"/><ellipse cx="128.625" cy="438" fill="#ADD1B2" rx="16.5" ry="16.5" style="stroke: #2F4F4F; stroke-width: 1.5;"/><path d="M132.1406,431.5078 C130.7344,430.8516 129.8438,430.6406 128.5313,430.6406 C124.5938,430.6406 121.5938,433.7578 121.5938,437.8359 L121.5938,439.5234 C121.5938,443.3906 124.7578,446.2266 129.0938,446.2266 C130.9219,446.2266 132.6563,445.7813 133.7813,444.9609 C134.6484,444.3516 135.1406,443.6719 135.1406,443.0859 C135.1406,442.4063 134.5547,441.8203 133.8516,441.8203 C133.5234,441.8203 133.2188,441.9375 132.9375,442.2188 C132.2578,442.9453 132.2578,442.9453 131.9766,443.0859 C131.3438,443.4844 130.3125,443.6719 129.1641,443.6719 C126.0938,443.6719 124.1484,442.0313 124.1484,439.4766 L124.1484,437.8359 C124.1484,435.1641 126.0234,433.1953 128.625,433.1953 C129.4922,433.1953 130.4063,433.4297 131.1094,433.8047 C131.8359,434.2266 132.0938,434.5547 132.2344,435.1641 C132.3281,435.7734 132.375,435.9609 132.5859,436.1484 C132.7969,436.3594 133.1484,436.5234 133.4766,436.5234 C133.875,436.5234 134.2734,436.3125 134.5313,435.9844 C134.6953,435.75 134.7422,435.4688 134.7422,434.8359 L134.7422,432.7031 C134.7422,432.0469 134.7188,431.8594 134.5781,431.625 C134.3438,431.2266 133.9219,431.0156 133.4766,431.0156 C133.0313,431.0156 132.7266,431.1563 132.3984,431.625 L132.1406,431.5078 Z "/><text fill="#008000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="91.5" x="159.375" y="444.2314">ReportDto</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="42.75" x2="318.75" y1="462" y2="462"/><ellipse cx="57.75" cy="478.5" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="144" x="71.25" y="483.3157">ReportID:number</text><ellipse cx="57.75" cy="497.707" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="234" x="71.25" y="502.5227">Type:"day"|"week"|"month"</text><ellipse cx="57.75" cy="516.9141" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="187.5" x="71.25" y="521.7297">TimesOfUse:number[]</text><ellipse cx="57.75" cy="536.1211" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="214.5" x="71.25" y="540.9368">UsedMostTemp:number[]</text><ellipse cx="57.75" cy="555.3281" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="240" x="71.25" y="560.1438">UsedMostWind:WindSpeed[]</text><ellipse cx="57.75" cy="574.5352" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="144" x="71.25" y="579.3508">TimesOf:umber[]</text><ellipse cx="57.75" cy="593.7422" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="228" x="71.25" y="598.5579">TimesOfDispatch:number[]</text><ellipse cx="57.75" cy="612.9492" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="175.5" x="71.25" y="617.7649">NumOfRDR:number[]</text><ellipse cx="57.75" cy="632.1563" fill="none" rx="4.5" ry="4.5" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="16.5" lengthAdjust="spacingAndGlyphs" textLength="157.5" x="71.25" y="636.9719">TotalFee:number[]</text><line style="stroke: #2F4F4F; stroke-width: 2.25;" x1="42.75" x2="318.75" y1="646.8633" y2="646.8633"/><!--MD5=[e3e8dc1b129586ab15b69a990a85286b]
+link ApiController to StatisticsService--><path d="M180.75,123.105 C180.75,148.4235 180.75,178.713 180.75,204.957 " fill="none" id="ApiController-&gt;StatisticsService" style="stroke: #808000; stroke-width: 1.5;"/><polygon fill="#808000" points="180.75,212.961,186.75,199.461,180.75,205.461,174.75,199.461,180.75,212.961" style="stroke: #808000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="12" x="167.7563" y="152.3432">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="36" x="141.4313" y="196.3195">0..1</text><!--MD5=[afdbf555abf3ae8de1129670f3d91c98]
+link StatisticsService to ReportDto--><path d="M180.75,324.2145 C180.75,348 180.75,377.028 180.75,405.8385 " fill="none" id="StatisticsService-&gt;ReportDto" style="stroke: #808000; stroke-width: 1.5;"/><polygon fill="#808000" points="180.75,413.9535,186.75,400.4535,180.75,406.4535,174.75,400.4535,180.75,413.9535" style="stroke: #808000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="12" x="167.7563" y="353.4709">1</text><text fill="#000000" font-family="sans-serif" font-size="19.5" lengthAdjust="spacingAndGlyphs" textLength="10.5" x="169.766" y="397.235">*</text><!--MD5=[4565ca94548d8991e90979e169c41c39]
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+' fontsize 30
+' attributeFontSize 20
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+'skinparam monochrome true
+'skinparam classFontColor red
+'skinparam classFontSize 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++statisticsService:StatisticsService
+- -
++void:printReport(ReportID:number)
+}
+
+class StatisticsService{
++reportInfo:Map<number,ReportDto>
+- -
++void:saveReport(ReportID:number)
+}
+
+class ReportDto{
++ReportID:number
++Type:"day"|"week"|"month"
++TimesOfUse:number[]
++UsedMostTemp:number[]
++UsedMostWind:WindSpeed[]
++TimesOf:umber[]
++TimesOfDispatch:number[]
++NumOfRDR:number[]
++TotalFee:number[]
+}
+
+ApiController "1"- ->"0..1" StatisticsService
+StatisticsService "1"- ->"*" ReportDto
+@enduml
+
+@startuml
+scale 1.5
+skinparam class {
+ backgroundColor lightskyblue
+ FontColor green
+ ArrowColor Olive
+ bordercolor DarkSlateGray
+ backgroundColor<<test>> YellowGreen
+}
+skinparam title {
+borderRoundCorner 15
+bordercolor red
+borderThickness 2
+backgroundColor Aqua-CadetBlue
+}
+skinparam roundcorner 10
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+class ApiController {
++statisticsService:StatisticsService
+- -
++void:printReport(ReportID:number)
+}
+
+class StatisticsService{
++reportInfo:Map<number,ReportDto>
+- -
++void:saveReport(ReportID:number)
+}
+
+class ReportDto{
++ReportID:number
++Type:"day"|"week"|"month"
++TimesOfUse:number[]
++UsedMostTemp:number[]
++UsedMostWind:WindSpeed[]
++TimesOf:umber[]
++TimesOfDispatch:number[]
++NumOfRDR:number[]
++TotalFee:number[]
+}
+
+ApiController "1"- ->"0..1" StatisticsService
+StatisticsService "1"- ->"*" ReportDto
+@enduml
+
+PlantUML version 1.2020.11(Sat May 30 10:13:43 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
