@@ -3,21 +3,10 @@ import CustomMenu from '../../components/CustomMenu/index';
 
 const menus = [
   {
-    title: '管理员界面',
+    title: '经理界面',
     icon: 'laptop',
-    key: '/admin',
-    subs: [
-      {
-        key: '/admin/host',
-        title: '主控机界面',
-        icon: '',
-        subs: [
-          { key: '/admin/host/change', title: '主控机调整', icon: '' },
-          { key: '/admin/host/information', title: '主控机信息', icon: '' },
-        ],
-      },
-      { key: '/admin/slave', title: '从控机信息', icon: '' },
-    ],
+    key: '/h',
+    subs: [{ key: '/manager/print', title: '报表打印', icon: '' }],
   },
 ];
 

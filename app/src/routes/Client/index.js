@@ -1,8 +1,8 @@
 import React from 'react';
 import { Layout } from 'antd';
-import SiderNav from '../../components/SiderNav';
-import ContentMain from '../../components/ContentMain';
-import HeaderBar from '../../components/HeaderBar';
+import SiderNav from '../../client/SiderNav/index';
+import ContentMain from '../../client/ContentMain/index';
+import HeaderBar from '../../components/HeaderBar/index';
 
 const { Sider, Header, Content, Footer } = Layout;
 
@@ -36,7 +36,7 @@ class Index extends React.Component {
               <ContentMain />
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              Copyright©2020 All Right Reserved{' '}
+              Copyright©2020 All Right Reserved-客户界面{' '}
               <a target="_blank" href="https://github.com/imtsuki/aircon">
                 github地址
               </a>

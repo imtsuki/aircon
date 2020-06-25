@@ -3,20 +3,20 @@ import CustomMenu from '../../components/CustomMenu/index';
 
 const menus = [
   {
-    title: '管理员界面',
-    icon: 'laptop',
-    key: '/admin',
+    title: '客户界面',
+    icon: 'edit',
+    key: '/client',
     subs: [
       {
-        key: '/admin/host',
-        title: '主控机界面',
+        key: '/client/change',
+        title: '空调使用',
         icon: '',
         subs: [
-          { key: '/admin/host/change', title: '主控机调整', icon: '' },
-          { key: '/admin/host/information', title: '主控机信息', icon: '' },
+          { key: '/client/change/changewind', title: '风速调整', icon: '' },
+          { key: '/client/change/changetem', title: '温度调整', icon: '' },
         ],
       },
-      { key: '/admin/slave', title: '从控机信息', icon: '' },
+      { key: '/client/information', title: '信息显示', icon: '' },
     ],
   },
 ];
