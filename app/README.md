@@ -1,41 +1,11 @@
-# aircon frontend
+## 图形化界面
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+yarn start 后，如果自动弹出的 localhost:3000 为一片空白，请手动输入 localhost:3000/login 转到 login 页面
 
-## Available Scripts
+## 代码相关
 
-In the project directory, you can run:
+src 下的四个文件夹（admin,manager,desk,client）保存了四个页面的导航栏设置和每个子页面的路由。routes 下的四个文件夹（admin,manager,desk,client）为每个页面的详细设计代码。routes 下的其他文件夹和 src/components 都是素材库。
 
-### `yarn start`
+## 其他
 
-Runs the app in the development mode.
-
-Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
-
-The page will reload if you make edits.
-
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.
-
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+前台账号密码均为 qiantai，管理员账号密码均为 admin，经理账号密码均为 jingli，客户账号密码均为 kehu1（也可以自己注册个新的，但是注册功能还没有仔细完善不知道能不能用）
