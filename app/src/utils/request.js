@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { notification } from 'antd';
+import history from '../history';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -11,7 +12,7 @@ const codeMessage = {
   403: '用户得到授权，但是访问是被禁止的。',
   404: '发出的请求针对的是不存在的记录，服务器没有进行操作。',
   406: '请求的格式不可得。',
-  410: '请求的资源被永久删除，且不会再得到的。',
+  410: '请求的资源被永久删除。',
   422: '当创建一个对象时，发生一个验证错误。',
   500: '服务器发生错误，请检查服务器。',
   502: '网关错误。',
@@ -23,6 +24,19 @@ let request = axios.create({
   baseURL: 'http://localhost:3000',
   timeout: 5000,
 });
+
+request.interceptors.request.use(
+  (config) => {
+    let token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers['Authorization'] = 'Bearer ' + token;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 request.interceptors.response.use(
   async (data) => {
@@ -38,6 +52,12 @@ request.interceptors.response.use(
         message: `请求错误： ${response.status}`,
         description: errorText,
       });
+
+      if (response.status === 401) {
+        console.log(401);
+      }
+      setTimeout(() => history.push('/login'), 2000);
+
       return Promise.reject(error.response.data);
     } else {
       notification.error({

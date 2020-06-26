@@ -1,8 +1,11 @@
 import React from 'react';
-import { Form, Input, message } from 'antd';
+import { Form, Input, Select, message, notification } from 'antd';
 import { inject, observer } from 'mobx-react/index';
 import { calculateWidth } from '../../utils/utils';
+import request from '../../utils/request';
 import PromptBox from '../../components/PromptBox';
+
+const { Option } = Select;
 
 @inject('appStore')
 @observer
@@ -16,33 +19,24 @@ class RegisterForm extends React.Component {
     this.setState({
       focusItem: -1,
     });
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        const users = this.props.appStore.users;
-        // 检测用户名是否存在
-        const result = users.find(
-          (item) => item.username === values.registerUsername
-        );
-        if (result) {
-          this.props.form.setFields({
-            registerUsername: {
-              value: values.registerUsername,
-              errors: [new Error('用户名已存在')],
-            },
-          });
-          return;
-        }
-
-        const obj = [
-          ...this.props.appStore.users,
-          {
+        try {
+          let response = await request.post('/register', {
             username: values.registerUsername,
             password: values.registerPassword,
-          },
-        ];
-        localStorage.setItem('users', JSON.stringify(obj));
-        this.props.appStore.initUsers();
-        message.success('注册成功');
+            role: values.role,
+          });
+          console.log(response);
+          message.success('注册成功');
+        } catch (e) {
+          console.log(e);
+          message.error('注册失败');
+          notification.error({
+            message: `注册失败`,
+            description: e.message,
+          });
+        }
       }
     });
   };
@@ -89,6 +83,7 @@ class RegisterForm extends React.Component {
               />
             )}
           </Form.Item>
+
           <Form.Item
             help={
               getFieldError('registerPassword') && (
@@ -158,6 +153,34 @@ class RegisterForm extends React.Component {
                   />
                 }
               />
+            )}
+          </Form.Item>
+          <Form.Item
+            help={
+              getFieldError('role') && (
+                <PromptBox
+                  info={getFieldError('role')}
+                  width={calculateWidth(getFieldError('role'))}
+                />
+              )
+            }
+          >
+            {getFieldDecorator('role', {
+              validateFirst: true,
+              rules: [{ required: true, message: '必须选择一个角色' }],
+            })(
+              <Select
+                placeholder="选择角色"
+                onChange={this.onGenderChange}
+                onFocus={() => this.setState({ focusItem: 3 })}
+                onBlur={() => this.setState({ focusItem: -1 })}
+                allowClear
+              >
+                <Option value="client">客户</Option>
+                <Option value="desk">前台</Option>
+                <Option value="manager">酒店经理</Option>
+                <Option value="admin">管理员</Option>
+              </Select>
             )}
           </Form.Item>
           <div className="bottom">

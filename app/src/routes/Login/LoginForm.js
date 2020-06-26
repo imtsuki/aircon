@@ -2,8 +2,9 @@ import React from 'react';
 import { randomNum, calculateWidth } from '../../utils/utils';
 import { withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react/index';
-import { Form, Input, Row, Col } from 'antd';
+import { Form, Input, Row, Col, message } from 'antd';
 import PromptBox from '../../components/PromptBox';
+import request from '../../utils/request';
 
 @withRouter
 @inject('appStore')
@@ -115,7 +116,7 @@ class LoginForm extends React.Component {
     this.setState({
       focusItem: -1,
     });
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFields(async (err, values) => {
       if (!err) {
         // 表单登录时，若验证码长度小于4则不会验证，所以我们这里要手动验证一次，线上的未修复
         if (
@@ -130,45 +131,36 @@ class LoginForm extends React.Component {
           return;
         }
 
-        const users = this.props.appStore.users;
-        // 检测用户名是否存在
-        const result = users.find((item) => item.username === values.username);
-        if (!result) {
-          this.props.form.setFields({
-            username: {
-              value: values.username,
-              errors: [new Error('用户名不存在')],
-            },
+        try {
+          let resp = await request.post('/auth/login', values);
+          console.log(resp.data);
+          localStorage.setItem('accessToken', resp.data.accessToken);
+
+          let profile = await request.get('api/profile');
+
+          this.props.appStore.toggleLogin(true, {
+            username: profile.data.username,
           });
-          return;
-        } else {
-          //检测密码是否错误
-          if (result.password !== values.password) {
-            this.props.form.setFields({
-              password: {
-                value: values.password,
-                errors: [new Error('密码错误')],
-              },
-            });
-            return;
+          console.log(profile);
+
+          switch (profile.data.role) {
+            case 'desk':
+              this.props.history.push({ pathname: `/desk/user/checkin` });
+              break;
+            case 'manager':
+              this.props.history.push({ pathname: `/manager/print` });
+              break;
+            case 'admin':
+              this.props.history.push({ pathname: `/admin/host/change` });
+              break;
+            case 'client':
+              this.props.history.push({ pathname: `/client/information` });
+              break;
+            default:
+              this.props.history.push({ pathname: `/${profile.data.role}` });
           }
-        }
-
-        this.props.appStore.toggleLogin(true, { username: values.username });
-
-        if (values.username === 'qiantai') {
-          //前台
-          this.props.history.push({ pathname: '/desk' });
-        } else if (values.username === 'admin') {
-          //管理员
-          this.props.history.push({ pathname: '/admin' });
-        } else if (values.username === 'jingli') {
-          //经理
-          this.props.history.push({ pathname: '/manager' });
-        } else if (values.username === 'test') {
-          this.props.history.push({ pathname: '/' });
-        } else {
-          this.props.history.push({ pathname: '/client' });
+        } catch (e) {
+          message.error('登录失败');
         }
       }
     });
