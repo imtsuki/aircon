@@ -5,6 +5,7 @@
   "author": "aircon authors",
   "private": true,
   "dependencies": {
+    "@ant-design/colors": "^4.0.1",
     "@antv/data-set": "^0.8.9",
     "@babel/polyfill": "^7.2.5",
     "animate.css": "^3.6.1",

@@ -2,7 +2,7 @@
 
 ## 图形化界面
 
-yarn start 后，如果自动弹出的 localhost:3000 为一片空白，请手动输入 localhost:4000/login 转到 login 页面
+yarn start 后，如果自动弹出的 localhost:4000 为一片空白，请手动输入 localhost:4000/login 转到 login 页面
 
 ## 代码相关
 
