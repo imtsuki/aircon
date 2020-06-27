@@ -5,7 +5,7 @@ const menus = [
   {
     title: '经理界面',
     icon: 'laptop',
-    key: '/h',
+    key: '/manager',
     subs: [{ key: '/manager/print', title: '报表打印', icon: '' }],
   },
 ];

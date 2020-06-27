@@ -11,86 +11,151 @@ import {
   Slider,
   Icon,
   InputNumber,
-  Input,
+  message,
 } from 'antd';
 import { blue, red } from '@ant-design/colors';
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb/index';
+import { inject, observer } from 'mobx-react/index';
+import { isAuthenticated } from '../../../utils/Session';
+import request from '../../../utils/request';
+import { debounce } from 'lodash';
 
-const columns = [
-  {
-    title: '合计金额',
-    dataIndex: 'cost',
-    key: 'cost',
-  },
-];
-
-const data = [
-  {
-    key: '1',
-    cost: 100,
-  },
-];
-
-const columns1 = [
-  {
-    title: '房间号',
-    dataIndex: 'id',
-    key: 'id',
-  },
-  {
-    title: '室内温度',
-    dataIndex: 'temperature',
-    key: 'temperature',
-  },
-  {
-    title: '风速',
-    dataIndex: 'wind',
-    key: 'wind',
-  },
-  {
-    title: '空调温度',
-    dataIndex: 'aircontem',
-    key: 'aircontem',
-  },
-];
-
-const data1 = [
-  {
-    key: '1',
-    id: '101',
-    temperature: 32,
-    wind: '高风',
-    aircontem: 26,
-  },
-];
-
-class TableDemo extends React.Component {
+@inject('appStore')
+class ClientPanel extends React.Component {
   state = {
     targetTemp: 25,
+    windSpeed: 1,
+    windMode: 'cooling',
+    roomStatus: {
+      curTemp: 25,
+      initialTemp: 25,
+      roomId: 102,
+      servedTime: 107,
+      status: 'off',
+      targetTemp: 23,
+      waitTime: 0,
+      windMode: 'cooling',
+      windSpeed: 1,
+    },
+    roomId: 101,
+    fee: 0,
+  };
+
+  constructor() {
+    super();
+    this.updateTargetTemp = debounce(this.updateTargetTemp, 1000);
+  }
+
+  async updateInfo() {
+    try {
+      const { roomId, fee } = (
+        await request.get(`/api/checkin/${isAuthenticated()}`)
+      ).data;
+      this.setState({ roomId: roomId, fee: fee });
+      const roomStatus = (await request.get(`/api/room/${roomId}/status`)).data;
+      console.log(roomStatus);
+      this.setState({ roomStatus: roomStatus });
+    } catch (e) {
+      message.error(e.toString());
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      await this.updateInfo();
+      this.interval = setInterval(async () => await this.updateInfo(), 1000);
+    } catch (e) {
+      message.error(e);
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  onWindModeChange = (e) => {
+    this.setState({
+      windMode: e.target.value,
+    });
+    request.put(`/api/room/${this.state.roomId}/wind`, {
+      command: 'changeMode',
+      mode: e.target.value,
+    });
+  };
+
+  onWindSpeedChange = (e) => {
+    this.setState({
+      windSpeed: e.target.value,
+    });
+    console.log(e.target.value);
+    console.log(e);
+    request.put(`/api/room/${this.state.roomId}/wind`, {
+      command: 'changeSpeed',
+      speed: e.target.value,
+    });
+  };
+
+  updateTargetTemp = (value) => {
+    request.put(`/api/room/${this.state.roomId}/wind`, {
+      command: 'changeTarget',
+      targetTemp: value,
+    });
   };
 
   onTargetTempChange = (value) => {
     this.setState({
       targetTemp: value,
     });
+    this.updateTargetTemp(value);
+  };
+
+  getSpeedString = (speed) => {
+    if (speed === 0) {
+      return '低风';
+    } else if (speed === 1) {
+      return '中风';
+    } else if (speed === 2) {
+      return '高风';
+    } else {
+      return '未知';
+    }
+  };
+
+  getStatusString = (status) => {
+    if (status === 'off') {
+      return '关机';
+    } else if (status === 'serving') {
+      return '正在运行';
+    } else if (status === 'waiting') {
+      return '等待调度';
+    } else if (status === 'pause') {
+      return '达温暂停';
+    } else {
+      return '未知';
+    }
   };
 
   render() {
-    const { targetTemp } = this.state;
+    const { targetTemp, roomStatus } = this.state;
     return (
       <div>
         <CustomBreadcrumb arr={['用户界面', '信息显示']} />
         <Row gutter={16} style={{ marginBottom: 10 }}>
           <Col span={6}>
             <Card>
-              <Statistic title="房间号" value="101" />
+              <Statistic title="用户名" value={isAuthenticated()} />
+            </Card>
+          </Col>
+          <Col span={6}>
+            <Card>
+              <Statistic title="房间号" value={this.state.roomId} />
             </Card>
           </Col>
           <Col span={6}>
             <Card>
               <Statistic
                 title="当前温度"
-                value={11.28}
+                value={roomStatus.curTemp}
                 precision={2}
                 valueStyle={{ color: blue.primary }}
                 prefix={<Icon type="arrow-down" />}
@@ -102,7 +167,7 @@ class TableDemo extends React.Component {
             <Card>
               <Statistic
                 title="当前账单费用"
-                value={9.3}
+                value={this.state.fee}
                 precision={2}
                 prefix={<Icon type="pay-circle" />}
                 suffix="元"
@@ -115,7 +180,7 @@ class TableDemo extends React.Component {
             <Card>
               <Statistic
                 title="当前状态"
-                value="关机"
+                value={this.getStatusString(roomStatus.status)}
                 valueStyle={{ color: red.primary }}
                 prefix={<Icon type="poweroff" />}
               />
@@ -125,8 +190,13 @@ class TableDemo extends React.Component {
             <Card>
               <Statistic
                 title="当前模式"
-                value="制热"
-                valueStyle={{ color: red.primary }}
+                value={roomStatus.windMode === 'cooling' ? '制冷' : '制热'}
+                valueStyle={{
+                  color:
+                    roomStatus.windMode === 'cooling'
+                      ? blue.primary
+                      : red.primary,
+                }}
                 prefix={<Icon type="fire" />}
               />
             </Card>
@@ -135,8 +205,13 @@ class TableDemo extends React.Component {
             <Card>
               <Statistic
                 title="当前风速"
-                value="中风"
-                valueStyle={{ color: red.primary }}
+                value={this.getSpeedString(roomStatus.windSpeed)}
+                valueStyle={{
+                  color:
+                    roomStatus.windMode === 'cooling'
+                      ? blue.primary
+                      : red.primary,
+                }}
                 prefix={<Icon type="loading" />}
               />
             </Card>
@@ -145,7 +220,7 @@ class TableDemo extends React.Component {
             <Card>
               <Statistic
                 title="目标温度"
-                value={11}
+                value={roomStatus.targetTemp}
                 valueStyle={{ color: red.primary }}
                 suffix="℃"
               />
@@ -157,12 +232,24 @@ class TableDemo extends React.Component {
             <Card title="操作面板">
               <div>
                 开关机：
-                <Switch checkedChildren="开" unCheckedChildren="关" />
+                <Switch
+                  checkedChildren="开"
+                  unCheckedChildren="关"
+                  onChange={async (checked, event) => {
+                    await request.put(`/api/room/${this.state.roomId}/wind`, {
+                      command: checked ? 'turnOn' : 'turnOff',
+                    });
+                  }}
+                />
               </div>
 
               <div style={{ marginTop: 16 }}>
                 模式：
-                <Radio.Group defaultValue="cooling" buttonStyle="solid">
+                <Radio.Group
+                  value={this.state.windMode}
+                  onChange={this.onWindModeChange}
+                  buttonStyle="solid"
+                >
                   <Radio.Button value="cooling">制冷</Radio.Button>
                   <Radio.Button value="heating">制热</Radio.Button>
                 </Radio.Group>
@@ -170,10 +257,14 @@ class TableDemo extends React.Component {
 
               <div style={{ marginTop: 16 }}>
                 风速：
-                <Radio.Group defaultValue="medium" buttonStyle="solid">
-                  <Radio.Button value="low">低风</Radio.Button>
-                  <Radio.Button value="medium">中风</Radio.Button>
-                  <Radio.Button value="high">高风</Radio.Button>
+                <Radio.Group
+                  value={this.state.windSpeed}
+                  onChange={this.onWindSpeedChange}
+                  buttonStyle="solid"
+                >
+                  <Radio.Button value={0}>低风</Radio.Button>
+                  <Radio.Button value={1}>中风</Radio.Button>
+                  <Radio.Button value={2}>高风</Radio.Button>
                 </Radio.Group>
               </div>
               <div style={{ marginTop: 16 }}>
@@ -181,16 +272,16 @@ class TableDemo extends React.Component {
                 <Row>
                   <Col span={12}>
                     <Slider
-                      min={18}
-                      max={25}
+                      min={roomStatus.windMode === 'cooling' ? 18 : 25}
+                      max={roomStatus.windMode === 'cooling' ? 25 : 30}
                       onChange={this.onTargetTempChange}
                       value={targetTemp}
                     />
                   </Col>
                   <Col span={4}>
                     <InputNumber
-                      min={18}
-                      max={25}
+                      min={roomStatus.windMode === 'cooling' ? 18 : 25}
+                      max={roomStatus.windMode === 'cooling' ? 25 : 30}
                       style={{ marginLeft: 16 }}
                       value={targetTemp}
                       onChange={this.onTargetTempChange}
@@ -208,16 +299,4 @@ class TableDemo extends React.Component {
   }
 }
 
-const styles = {
-  tableStyle: {
-    width: '80%',
-  },
-  affixBox: {
-    position: 'absolute',
-    top: 100,
-    right: 50,
-    with: 170,
-  },
-};
-
-export default TableDemo;
+export default ClientPanel;

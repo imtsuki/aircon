@@ -1,0 +1,25 @@
+{
+  "servingCapacity": 3,
+  "initialStatus": [
+    {
+      "roomId": 101,
+      "initialTemp": 32
+    },
+    {
+      "roomId": 102,
+      "initialTemp": 28
+    },
+    {
+      "roomId": 103,
+      "initialTemp": 30
+    },
+    {
+      "roomId": 104,
+      "initialTemp": 29
+    },
+    {
+      "roomId": 105,
+      "initialTemp": 35
+    }
+  ]
+}

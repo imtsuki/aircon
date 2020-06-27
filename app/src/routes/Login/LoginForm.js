@@ -118,7 +118,6 @@ class LoginForm extends React.Component {
     });
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        // 表单登录时，若验证码长度小于4则不会验证，所以我们这里要手动验证一次，线上的未修复
         if (
           this.state.code.toUpperCase() !== values.verification.toUpperCase()
         ) {
@@ -151,7 +150,7 @@ class LoginForm extends React.Component {
               this.props.history.push({ pathname: `/manager/print` });
               break;
             case 'admin':
-              this.props.history.push({ pathname: `/admin/host/change` });
+              this.props.history.push({ pathname: `/admin/slave` });
               break;
             case 'client':
               this.props.history.push({ pathname: `/client/information` });

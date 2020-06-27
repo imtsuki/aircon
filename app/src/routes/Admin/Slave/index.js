@@ -1,71 +1,84 @@
 import React from 'react';
 import { Card, Table, BackTop } from 'antd';
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb/index';
+import request from '../../../utils/request';
 
 const columns1 = [
   {
     title: '房间号',
-    dataIndex: 'id',
-    key: 'id',
+    dataIndex: 'roomId',
   },
   {
-    title: '室内温度',
-    dataIndex: 'temperature',
-    key: 'temperature',
+    title: '运行状态',
+    dataIndex: 'status',
   },
   {
-    title: '风速',
-    dataIndex: 'wind',
-    key: 'wind',
+    title: '空调模式',
+    dataIndex: 'windMode',
   },
   {
-    title: '空调温度',
-    dataIndex: 'aircontem',
-    key: 'aircontem',
+    title: '空调风速',
+    dataIndex: 'windSpeed',
   },
   {
-    title: '从控机运行状态',
-    dataIndex: 'slave',
-    key: 'slave',
+    title: '当前温度',
+    dataIndex: 'curTemp',
+  },
+  {
+    title: '初始温度',
+    dataIndex: 'initialTemp',
+  },
+  {
+    title: '目标温度',
+    dataIndex: 'targetTemp',
+  },
+  {
+    title: '服务时长',
+    dataIndex: 'servedTime',
+  },
+  {
+    title: '等待时间',
+    dataIndex: 'waitTime',
   },
 ];
 
-const data1 = [
-  {
-    key: '1',
-    id: '101',
-    temperature: 32,
-    wind: '高风',
-    aircontem: 26,
-    slave: '是',
-  },
-  {
-    key: '2',
-    id: '102',
-    temperature: 26,
-    wind: '低风',
-    aircontem: 26,
-    slave: '否',
-  },
-  {
-    key: '3',
-    id: '103',
-    temperature: 20,
-    wind: '高风',
-    aircontem: 18,
-    slave: '是',
-  },
-  {
-    key: '4',
-    id: '104',
-    temperature: 22,
-    wind: '中风',
-    aircontem: 20,
-    slave: '是',
-  },
-];
+function getWindSpeedName(s) {
+  switch (s) {
+    case 0:
+      return '低风';
+    case 1:
+      return '中风';
+    case 2:
+      return '高风';
+    default:
+      return '未知';
+  }
+}
 
 class TableDemo extends React.Component {
+  state = {
+    data: [],
+  };
+
+  async updateInfo() {
+    try {
+      let data = (await request.get('/api/status')).data;
+      for (let r of data) {
+        r.windSpeed = getWindSpeedName(r.windSpeed);
+        r.curTemp = r.curTemp.toFixed(2);
+      }
+      this.setState({ data: data });
+    } catch (e) {}
+  }
+
+  async componentDidMount() {
+    await this.updateInfo();
+    this.interval = setInterval(async () => await this.updateInfo(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   render() {
     return (
       <div>
@@ -77,7 +90,7 @@ class TableDemo extends React.Component {
           id="basicUsage"
         >
           <Table
-            dataSource={data1}
+            dataSource={this.state.data}
             columns={columns1}
             style={styles.tableStyle}
           />

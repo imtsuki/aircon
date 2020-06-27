@@ -9,6 +9,7 @@ import {
   Param,
   Put,
   NotFoundException,
+  BadRequestException,
 } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
@@ -17,8 +18,9 @@ import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { CheckInDto, ChangeWindDto, PowerOnDto } from 'src/dto';
 import { CheckInService } from 'src/check-in/check-in.service';
 import { SchedulerService } from 'src/scheduler/scheduler.service';
-import { Action } from 'src/dto/change-wind.dto';
+import { Command } from 'src/dto/change-wind.dto';
 import { StatisticsService } from 'src/statistics/statistics.service';
+import { RoomStatusService } from 'src/room-status/room-status.service';
 
 @ApiBearerAuth()
 @Controller('api')
@@ -27,6 +29,7 @@ export class ApiController {
   constructor(
     private schedulerService: SchedulerService,
     private checkInService: CheckInService,
+    private roomStatusService: RoomStatusService,
     private statisticsService: StatisticsService,
   ) {}
 
@@ -39,22 +42,45 @@ export class ApiController {
   @ApiOperation({ description: '开关机，更改房间风速' })
   @Put('room/:roomId/wind')
   @Roles('client')
-  changeWind(
+  async changeWind(
     @Param('roomId') roomId: string,
     @Body() changeWind: ChangeWindDto,
   ) {
-    if (changeWind.action == Action.ON) {
-      this.schedulerService.changeWind(parseInt(roomId), changeWind.speed);
-    } else {
-      this.schedulerService.turnOff(parseInt(roomId));
+    switch (changeWind.command) {
+      case Command.TURN_ON:
+        await this.schedulerService.turnOn(parseInt(roomId));
+        break;
+      case Command.TURN_OFF:
+        await this.schedulerService.turnOff(parseInt(roomId));
+        break;
+      case Command.CHANGE_SPEED:
+        await this.schedulerService.changeWind(
+          parseInt(roomId),
+          changeWind.speed,
+        );
+        break;
+      case Command.CHANGE_MODE:
+        await this.roomStatusService.setWindMode(
+          parseInt(roomId),
+          changeWind.mode,
+        );
+        break;
+      case Command.CHANGE_TARGET:
+        await this.roomStatusService.setTargetTemp(
+          parseInt(roomId),
+          changeWind.targetTemp,
+        );
+        break;
+      default:
+        throw new BadRequestException(`Unknown command ${changeWind.command}`);
     }
   }
 
   @ApiOperation({ description: '查看房间空调状态' })
   @Get('room/:roomId/status')
-  @Roles('client')
-  getStatus(@Param('roomId') roomId: string) {
-    return this.schedulerService.getStatus(parseInt(roomId));
+  @Roles('client', 'admin')
+  async getStatus(@Param('roomId') roomId: string) {
+    return await this.roomStatusService.getRoomStatus(parseInt(roomId));
   }
 
   @ApiOperation({ description: '客户查看已消费金额' })
@@ -69,6 +95,13 @@ export class ApiController {
   @Roles('desk')
   async checkIn(@Body() checkIn: CheckInDto) {
     return this.checkInService.checkIn(checkIn);
+  }
+
+  @ApiOperation({ description: '前台查看所有入住信息' })
+  @Get('checkin')
+  @Roles('desk')
+  async getAllCheckIns() {
+    return this.checkInService.getAllCheckIns();
   }
 
   @ApiOperation({ description: '前台操作客户退房' })
@@ -103,14 +136,14 @@ export class ApiController {
   @Roles('desk')
   getDetail(@Param('username') username: string) {
     console.log(username);
-    return;
+    return this.statisticsService.getDetail(username);
   }
 
   @ApiOperation({ description: '经理查看统计报表' })
   @Get('report')
   @Roles('manager')
   getReport() {
-    return;
+    return this.statisticsService.getReport();
   }
 
   @ApiOperation({ description: '管理员配置并打开主控机' })
@@ -123,8 +156,8 @@ export class ApiController {
   @ApiOperation({ description: '管理员查看房间状态' })
   @Get('status')
   @Roles('admin')
-  getRoomStatus() {
-    return;
+  getAllRoomStatus() {
+    return this.roomStatusService.getAllRoomStatus();
   }
 
   @ApiOperation({ description: '管理员关闭主控机' })

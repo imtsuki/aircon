@@ -26,6 +26,17 @@ export class WaitQueueService {
     return expired;
   }
 
+  popExpiredRoom() {
+    const byWindSpeed = R.descend(R.prop('windSpeed'));
+    const byWaitTime = R.ascend(R.prop('waitTime'));
+    this.queue = R.sortWith([byWindSpeed, byWaitTime], this.queue);
+    const filtered = this.queue.filter(room => room.waitTime <= 0);
+    if (filtered.length > 0) {
+      const expired = this.queue.shift();
+      return expired;
+    }
+  }
+
   pushRoom(room: WaitRoom) {
     this.removeIfExists(room.roomId);
     this.queue.push(room);

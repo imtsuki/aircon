@@ -25,10 +25,7 @@ const menus = [
     title: '账单管理',
     icon: 'edit',
     key: '/desk/check',
-    subs: [
-      { key: '/desk/check/user', title: '个人账单打印', icon: '' },
-      { key: '/desk/check/hotel', title: '酒店账单打印', icon: '' },
-    ],
+    subs: [{ key: '/desk/check/user', title: '账单详单打印', icon: '' }],
   },
 ];
 

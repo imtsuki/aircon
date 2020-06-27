@@ -6,34 +6,7 @@ import { CreateUserDto } from 'src/dto';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(User.name) private userModel: Model<User>) {
-    const a = [
-      {
-        userId: 1,
-        username: 'alice',
-        password: 'pass',
-        role: 'client',
-      },
-      {
-        userId: 2,
-        username: 'bob',
-        password: 'pass',
-        roles: 'desk',
-      },
-      {
-        userId: 3,
-        username: 'tom',
-        password: 'pass',
-        role: 'manager',
-      },
-      {
-        userId: 4,
-        username: 'john',
-        password: 'pass',
-        role: 'admin',
-      },
-    ];
-  }
+  constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async findOne(username: string): Promise<User | null> {
     return this.userModel.findOne({ username: username }).exec();

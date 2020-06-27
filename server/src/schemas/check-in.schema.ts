@@ -11,6 +11,9 @@ export class CheckIn extends Document {
 
   @Prop({ required: true })
   active: boolean;
+
+  @Prop({ required: true })
+  fee: number;
 }
 
 export const CheckInSchema = SchemaFactory.createForClass(CheckIn);

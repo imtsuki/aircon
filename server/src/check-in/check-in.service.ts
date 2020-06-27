@@ -29,6 +29,12 @@ export class CheckInService {
       );
     }
 
+    if (checkInDto.roomId < 101 || checkInDto.roomId > 105) {
+      throw new BadRequestException(
+        `no such room with roomId ${checkInDto.roomId}`,
+      );
+    }
+
     const existingCheckIn = await this.checkInModel.findOne({
       active: true,
       $or: [{ username: checkInDto.username }, { roomId: checkInDto.roomId }],
@@ -42,6 +48,7 @@ export class CheckInService {
     const createdCheckIn = new this.checkInModel({
       ...checkInDto,
       active: true,
+      fee: 0,
     });
     return createdCheckIn.save();
   }
@@ -74,9 +81,17 @@ export class CheckInService {
       .exec();
   }
 
+  async getCheckInByRoomId(roomId: number) {
+    return this.checkInModel.findOne({ roomId: roomId, active: true }).exec();
+  }
+
   async getUsernameByRoomId(roomId: number) {
     return (
       await this.checkInModel.findOne({ roomId: roomId, active: true }).exec()
     )?.username;
+  }
+
+  async getAllCheckIns() {
+    return await this.checkInModel.find({ active: true }).exec();
   }
 }

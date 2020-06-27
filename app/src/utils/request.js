@@ -55,8 +55,8 @@ request.interceptors.response.use(
 
       if (response.status === 401) {
         console.log(401);
+        setTimeout(() => history.push('/login'), 2000);
       }
-      setTimeout(() => history.push('/login'), 2000);
 
       return Promise.reject(error.response.data);
     } else {

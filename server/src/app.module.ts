@@ -11,6 +11,7 @@ import { SchedulerModule } from './scheduler/scheduler.module';
 import { CheckInModule } from './check-in/check-in.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import configuration from './configuration';
+import { RoomStatusModule } from './room-status/room-status.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import configuration from './configuration';
     UsersModule,
     SchedulerModule,
     CheckInModule,
+    RoomStatusModule,
     StatisticsModule,
   ],
   controllers: [AppController, ApiController],
