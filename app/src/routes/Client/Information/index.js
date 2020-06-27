@@ -27,6 +27,7 @@ class ClientPanel extends React.Component {
     targetTemp: 25,
     windSpeed: 1,
     windMode: 'cooling',
+    rising: false,
     roomStatus: {
       curTemp: 25,
       initialTemp: 25,
@@ -55,11 +56,13 @@ class ClientPanel extends React.Component {
       this.setState({ roomId: roomId, fee: fee });
       const roomStatus = (await request.get(`/api/room/${roomId}/status`)).data;
       console.log(roomStatus);
+
       this.setState({
         roomStatus: roomStatus,
         windMode: roomStatus.windMode,
         windSpeed: roomStatus.windSpeed,
         checked: roomStatus.status !== 'off',
+        rising: roomStatus.curTemp > this.state.roomStatus.curTemp,
       });
     } catch (e) {
       message.error(e.toString());
@@ -163,8 +166,12 @@ class ClientPanel extends React.Component {
                 title="当前温度"
                 value={roomStatus.curTemp}
                 precision={2}
-                valueStyle={{ color: blue.primary }}
-                prefix={<Icon type="arrow-down" />}
+                valueStyle={{
+                  color: this.state.rising ? red.primary : blue.primary,
+                }}
+                prefix={
+                  <Icon type={this.state.rising ? 'arrow-up' : 'arrow-down'} />
+                }
                 suffix="℃"
               />
             </Card>
