@@ -95,6 +95,8 @@ export class SchedulerService {
     }
   }
 
+
+
   /**
    * 主动关机
    * @param roomId
