@@ -23,6 +23,7 @@ import { debounce } from 'lodash';
 @inject('appStore')
 class ClientPanel extends React.Component {
   state = {
+    checked: false,
     targetTemp: 25,
     windSpeed: 1,
     windMode: 'cooling',
@@ -54,7 +55,12 @@ class ClientPanel extends React.Component {
       this.setState({ roomId: roomId, fee: fee });
       const roomStatus = (await request.get(`/api/room/${roomId}/status`)).data;
       console.log(roomStatus);
-      this.setState({ roomStatus: roomStatus });
+      this.setState({
+        roomStatus: roomStatus,
+        windMode: roomStatus.windMode,
+        windSpeed: roomStatus.windSpeed,
+        checked: roomStatus.status !== 'off',
+      });
     } catch (e) {
       message.error(e.toString());
     }
@@ -235,6 +241,7 @@ class ClientPanel extends React.Component {
                 <Switch
                   checkedChildren="开"
                   unCheckedChildren="关"
+                  checked={this.state.checked}
                   onChange={async (checked, event) => {
                     await request.put(`/api/room/${this.state.roomId}/wind`, {
                       command: checked ? 'turnOn' : 'turnOff',

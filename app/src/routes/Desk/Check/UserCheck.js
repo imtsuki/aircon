@@ -62,6 +62,19 @@ const columns1 = [
   },
 ];
 
+function getWindSpeedName(s) {
+  switch (s) {
+    case 0:
+      return '低风';
+    case 1:
+      return '中风';
+    case 2:
+      return '高风';
+    default:
+      return '未知';
+  }
+}
+
 @Form.create()
 class TableDemo extends React.Component {
   state = {
@@ -84,6 +97,7 @@ class TableDemo extends React.Component {
             log.curTemp = log.curTemp.toFixed(2);
             log.fee = log.fee.toFixed(2);
             log.timestamp = new Date(log.timestamp).toTimeString();
+            log.windSpeed = getWindSpeedName(log.windSpeed);
           }
           this.setState({ fee: detail.fee, logs: detail.logs });
 
