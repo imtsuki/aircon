@@ -6,7 +6,6 @@ import Client from './routes/Client';
 import Desk from './routes/Desk';
 import Admin from './routes/Admin';
 import Manager from './routes/Manager';
-import Index from './routes/Index/index';
 import './App.css';
 import './assets/font/iconfont.css';
 

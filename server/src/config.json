@@ -1,5 +1,6 @@
 {
   "servingCapacity": 3,
+  "defaultTargetTemp": 25,
   "initialStatus": [
     {
       "roomId": 101,

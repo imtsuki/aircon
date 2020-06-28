@@ -26,7 +26,7 @@ export class SchedulerService {
   /**
    * 基于时间片的调度
    */
-  @Interval('schedule', 100)
+  @Interval('schedule', 500)
   async schedule() {
     this.servingQueueService.increaseServedTimeBy(1);
     this.waitQueueService.decreaseWaitTimeBy(1);

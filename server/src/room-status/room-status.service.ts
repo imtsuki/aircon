@@ -140,7 +140,7 @@ export class RoomStatusService {
           } else {
             const delta = (0.5 * seconds) / 60;
             let nextTemp = room.curTemp;
-            if (delta <= room.initialTemp) {
+            if (nextTemp <= room.initialTemp) {
               nextTemp += delta;
               if (nextTemp > room.initialTemp) {
                 nextTemp = room.initialTemp;
